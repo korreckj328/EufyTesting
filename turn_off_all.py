@@ -6,13 +6,14 @@ import time
 import lakeside
 from eufydevice import EufyDevice
 
-from logon_info import *
+from PrefLoader import *
 
 
 def main():
+    login = PrefLoader().load()
     bulb_list = []
     print("about to get devices")
-    devices = lakeside.get_devices(username, password)
+    devices = lakeside.get_devices(login.username, login.password)
     print(len(devices))
     print("got devices successfully")
     for device in devices:
