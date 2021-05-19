@@ -1,0 +1,3 @@
+[submodule "python-lakeside"]
+	path = python-lakeside
+	url = git@github.com:google/python-lakeside.git
