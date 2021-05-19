@@ -41,7 +41,9 @@ class EufyDevice:
     def turn_on(self):
         # self.connect()
         self.bulb.set_state(power=True)
+        self.update_bulb_status()
 
     def turn_off(self):
         # self.connect()
         self.bulb.set_state(power=False)
+        self.update_bulb_status()

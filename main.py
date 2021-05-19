@@ -21,7 +21,7 @@ def main():
             if device.get("type") == "T1011":
                 bulb = EufyDevice(device.get("address"), device.get("code"), device.get("type"), device.get("name"),
                                   device.get("id"))
-                # print("bulb created")
+                print("bulb created")
                 bulb_list.append(bulb)
         if len(bulb_list) == 0:
             print("no bulbs in bulb list")
@@ -42,8 +42,8 @@ def main():
         while bulbscreen:
             os.system("clear")
             print("Bulb Info")
-            power_str = str(bulb.bulb_status.power)
-            brightness_str = str(bulb.bulb_status.brightness)
+            power_str = str(bulb_list[myinput -1 ].bulb_status.power)
+            brightness_str = str(bulb_list[myinput -1 ].bulb_status.brightness)
             print("Name: " + str(bulb_list[myinput - 1].name))
             print("Power: " + power_str)
             print("Brightness: " + brightness_str)
