@@ -1,0 +1,4 @@
+[submodule "mylakeside"]
+	path = python-lakeside
+	url = git@github.com:korreckj328/python-lakeside.git
+	branch = T1015
