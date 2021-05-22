@@ -6,6 +6,8 @@ import time
 
 from eufydevice import *
 from PrefLoader import *
+from SupportedDevices import supported_devices
+
 
 def main():
     bulb_list = []
@@ -17,10 +19,21 @@ def main():
     print(len(devices))
     print("got devices successfully")
     for device in devices:
-        if device.get("type") == "T1011":
-            bulb = EufyDevice(device.get("address"), device.get("code"), device.get("type"), device.get("name"), device.get("id"))
-            print("bulb created")
-            bulb_list.append(bulb)
+        if device.get("type") in supported_devices:
+            try:
+                bulb = EufyDevice(device.get("address"),
+                                  device.get("code"),
+                                  device.get("type"),
+                                  device.get("name"),
+                                  device.get("id"))
+                print("bulb created")
+                bulb_list.append(bulb)
+            except:
+                print("bulb creation failed")
+                print("name: " + device.get("name"))
+                print("type: " + device.get("type"))
+        else:
+            print("missing device type: " + device.get("type"))
     if len(bulb_list) == 0:
         print("no bulbs in bulb list")
         exit(-1)
